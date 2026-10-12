@@ -6,8 +6,7 @@
 </template>
 
 <script>
-import Tabbar from './components/Tabbar/Tabbar'
-import Head from './components/Header/Header'
+import Tabbar from './components/Tabbar/Tabbar.vue'
 export default {
     components:{
         Tabbar

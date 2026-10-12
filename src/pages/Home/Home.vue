@@ -1,10 +1,13 @@
 <template>
     <div class="home">
       <Head title="天津市大学软件学院">
-        <span slot="left">
-           <i class="iconfont icon-iconset0157" @click="$router.push('/search')"></i>
-        </span>
-        <span slot="right" class="auth">
+        <template #left>
+          <span class="search">
+             <i class="iconfont icon-iconset0157" @click="$router.push('/search')"></i>
+          </span>
+        </template>
+        <template #right>
+          <span class="auth">
            <template v-if="user">
              <router-link to="/mine" class="username">{{ user.username }}</router-link>
              <a href="javascript:void(0)" @click="handleLogout">退出</a>
@@ -14,7 +17,8 @@
              /
              <router-link :to="{ path: '/login', query: { mode: 'register' } }">注册</router-link>
            </template>
-        </span>
+          </span>
+        </template>
       </Head>
       <section class="welcome">
         <template v-if="user">
@@ -32,7 +36,7 @@
 </template>
 
 <script>
-import Head from '../../components/Header/Header'
+import Head from '../../components/Header/Header.vue'
 import { logout } from '../../api/user'
 import { getUser, clearAuth } from '../../utils/auth'
 
@@ -61,12 +65,12 @@ export default {
 
 <style lang="less" scoped>
   .home{
-    span{
-      &:first-child{
-        padding-left: 10px;
-        i{
-          font-weight: bold;
-        }
+    .search{
+      display: block;
+      padding-left: 10px;
+      text-align: left;
+      i{
+        font-weight: bold;
       }
     }
     .auth{

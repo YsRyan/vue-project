@@ -5,11 +5,11 @@ import mockAdapter from './mock'
 
 // 约定后端统一返回 { code, data, msg }，code === 0 表示成功
 const service = axios.create({
-  baseURL: process.env.API_BASE_URL,
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: 10000
 })
 
-if (process.env.USE_MOCK) {
+if (import.meta.env.VITE_USE_MOCK === 'true') {
   service.defaults.adapter = mockAdapter
 }
 
@@ -33,7 +33,7 @@ service.interceptors.response.use(
     const { response } = error
     if (response && response.status === 401) {
       clearAuth()
-      router.replace({ path: '/login', query: { redirect: router.currentRoute.fullPath } })
+      router.replace({ path: '/login', query: { redirect: router.currentRoute.value.fullPath } })
     }
     const msg = (response && response.data && response.data.msg) || error.message || '网络异常'
     return Promise.reject(new Error(msg))

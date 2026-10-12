@@ -1,4 +1,4 @@
-// 后端未就绪时的本地模拟接口（config/dev.env.js 中 USE_MOCK 控制），对接真实后端后关闭即可
+// 后端未就绪时的本地模拟接口（.env.development 中 VITE_USE_MOCK 控制），对接真实后端后关闭即可
 const USERS_KEY = 'vp_mock_users'
 
 function loadUsers () {

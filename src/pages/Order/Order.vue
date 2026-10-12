@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Head from '../../components/Header/Header'
+import Head from '../../components/Header/Header.vue'
 export default {
     components:{
         Head
@@ -13,6 +13,6 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="less" scoped>
 
 </style>

@@ -1,10 +1,10 @@
 <template>
-    <div>
-       <slot name="left"></slot>
-       <span>
+    <div class="header">
+       <span class="left"><slot name="left"></slot></span>
+       <span class="title">
            {{ title }}
        </span>
-       <slot name="right"></slot>
+       <span class="right"><slot name="right"></slot></span>
     </div>
 </template>
 
@@ -17,23 +17,23 @@ export default {
 </script>
 
 <style lang="less" scoped>
-  div{
+  .header{
       height: .4rem;
       background-color: lightblue;
       line-height: .4rem;
       display: flex;
-      span{
+      > span{
           text-align: center;
           overflow: hidden;
-          &:nth-of-type(1){
-            flex: 1;
-          }
-          &:nth-of-type(2){
-            flex: 3;
-          }
-          &:nth-of-type(3){
-            flex: 2;
-          }
+      }
+      .left{
+        flex: 1;
+      }
+      .title{
+        flex: 3;
+      }
+      .right{
+        flex: 2;
       }
   }
 </style>

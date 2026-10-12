@@ -1,51 +1,19 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
-import Home from '../pages/Home/Home'
-import Mine from '../pages/Mine/Mine'
-import Search from '../pages/Search/Search'
-import Order from '../pages/Order/Order'
-import Login from '../pages/Login/Login'
+import Home from '../pages/Home/Home.vue'
+import Mine from '../pages/Mine/Mine.vue'
+import Search from '../pages/Search/Search.vue'
+import Order from '../pages/Order/Order.vue'
+import Login from '../pages/Login/Login.vue'
 
-Vue.use(Router)
-
-export default new Router({
-     routes:[
-         {
-             path:'/home',
-             component:Home,
-             meta:{
-                 isShowFooter:true
-             }
-         },
-         {
-            path:'/mine',
-            component:Mine,
-            meta:{
-                isShowFooter:true
-            }
-        },
-        {
-            path:'/order',
-            component:Order,
-            meta:{
-                isShowFooter:true
-            }
-        },
-        {
-            path:'/search',
-            component:Search,
-            meta:{
-                isShowFooter:true
-            }
-        },
-        {
-            path:'/',
-            redirect:'/home'
-        },
-        {
-            path:'/login',
-            component:Login
-        }
-     ]
+export default createRouter({
+  history: createWebHashHistory(),
+  routes: [
+    { path: '/home', component: Home, meta: { isShowFooter: true } },
+    { path: '/mine', component: Mine, meta: { isShowFooter: true } },
+    { path: '/order', component: Order, meta: { isShowFooter: true } },
+    { path: '/search', component: Search, meta: { isShowFooter: true } },
+    { path: '/', redirect: '/home' },
+    { path: '/login', component: Login }
+  ]
 })
